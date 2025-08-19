@@ -5,13 +5,9 @@ import Header from "@/app/(group)/component/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-interface PageProps {
-  params: {
-    id: string; // ensure id is string
-  };
-}
+// Remove custom PageProps interface
 
-export default async function page({ params }: PageProps) {
+export default async function page({ params }: { params: { id: string } }) {
   const id = params.id;
 
   // fetch product
