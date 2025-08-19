@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: { params: any }) {
   };
 }
 
-//@ts-ignore
 export default async function page({ searchParams }: { searchParams: any }) {
   const query = searchParams.q || '';
   const min = searchParams.min;
@@ -29,7 +28,7 @@ export default async function page({ searchParams }: { searchParams: any }) {
 
   try {
     if (query) {
-      const url = "https://dummyjson.com/products/search?q=" + query;
+      const url = `https://dummyjson.com/products/search?q=${query}`;
       const res = await fetch(url);
       const data = await res.json();
       results = data.products || [];
