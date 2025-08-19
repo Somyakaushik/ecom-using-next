@@ -5,9 +5,8 @@ import Header from "@/app/(group)/component/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-// Remove custom PageProps interface
-
-export default async function page({ params }: { params: { id: string } }) {
+export default async function Page(props: any) {
+  const { params } = props; // no type annotation
   const id = params.id;
 
   // fetch product
@@ -22,7 +21,6 @@ export default async function page({ params }: { params: { id: string } }) {
     );
   }
 
-  // Fix image URL if needed
   const imageUrl = data.thumbnail.startsWith("http")
     ? data.thumbnail
     : `https://dummyjson.com/${data.thumbnail}`;
